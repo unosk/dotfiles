@@ -41,7 +41,7 @@ set showmode
 set title
 set ruler
 set list
-set listchars=tab:>-,trail:-,extends:>,precedes:< ",eol:$
+set listchars=tab:>\ ,trail:-,extends:>,precedes:< ",eol:$
 set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
