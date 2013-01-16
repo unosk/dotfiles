@@ -93,6 +93,12 @@ colorscheme railscasts
 "-----------------------------------------
 " Plguin
 "-----------------------------------------
+" NERD Tree
+let file_name = expand("%")
+if has('vim_starting') &&  file_name == ""
+  autocmd VimEnter * NERDTree ./
+endif
+
 " NERD Commenter
 let NERDSpaceDelims = 1
 
