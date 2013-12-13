@@ -1,2 +1,3 @@
-*.swp
+*.sw*
 .vimrc.local
+.rbenv-version

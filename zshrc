@@ -1,12 +1,10 @@
 #---------------------------------------------------------------------------
 # General
 #---------------------------------------------------------------------------
-#export LANG=ja_JP.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export TERM=xterm-256color
 setopt nobeep
-
 
 #---------------------------------------------------------------------------
 # History
@@ -48,25 +46,6 @@ setopt auto_cd
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt nolistbeep
 
-
-#---------------------------------------------------------------------------
-# Alias
-#---------------------------------------------------------------------------
-alias ll='ls -ltr'
-alias la="ls -lhAF --color=auto"
-
-alias be='bundle exec'
-alias r="rails"
-
-alias g='git'
-alias gci='git commit'
-alias gst='git status'
-alias glg='git log'
-alias gaa='git add .'
-alias gffs='git flow feature start'
-alias gfff='git flow feature finish'
-
-
 #---------------------------------------------------------------------------
 # Appearance
 #---------------------------------------------------------------------------
@@ -80,9 +59,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
 precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
 #---------------------------------------------------------------------------
@@ -92,35 +71,77 @@ PROMPT="%{${fg[yellow]}%}%/%%%{${reset_color}%} "
 PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
 SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 RPROMPT="%1(v|%F{green}%1v%f|)"
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="%{${fg[cyan]}%}%n@${HOST%%.*} ${PROMPT}"
-
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{${fg[cyan]}%}%n@${HOST%%.*} ${PROMPT}"
 
 #---------------------------------------------------------------------------
-# Function
+# Alias
 #---------------------------------------------------------------------------
-# Mkdir+Cd
+alias ll='ls -ltr'
+alias la="ls -lhAF --color=auto"
+
+alias diff='colordiff'
+
+alias be='bundle exec'
+
+alias g='git'
+alias gci='git commit'
+alias gst='git status'
+alias glg='git log'
+alias gaa='git add .'
+alias gdf='git diff'
+alias gco='git checkout'
+
+alias gffs='git flow feature start'
+alias gfff='git flow feature finish'
+
+#---------------------------------------------------------------------------
+# Others
+#---------------------------------------------------------------------------
 function mkcd() {
-  if [[ -d $1 ]]; then
-    echo "It already exsits! Cd to the directory."
-    cd $1
-  else
-    mkdir -p $1 && cd $1
-  fi
+  mkdir -p $1 && cd $1
 }
-# Find+Grep
+
 function findgrep() {
   find . -type f -print | xargs grep -n --binary-files=without-match $@
 }
-# Reload zshrc
+
+function findswaps() {
+  find -name '*.sw*'
+}
+
+function rmswaps() {
+  findswaps | xargs rm
+}
+
 function reload() {
   source $HOME/.zshrc
 }
-# Override
-function chpwd() { ls }
 
+function chpwd() {
+  ls
+}
 
+function google() {
+  local str opt
+  if [ $ != 0 ]; then
+    for i in $*; do
+      str="$str+$i"
+    done
+    str=`echo $str | sed 's/^\+//'`
+    opt='search?num=50&amp;hl=ja&amp;lr=lang_ja'
+    opt="${opt}&amp;q=${str}"
+  fi
+  w3m http://www.google.co.jp/$opt
+}
 
-# Rbenv
+function alc() {
+  if [ $ != 0 ]; then
+    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
+  else
+    w3m "http://www.alc.co.jp/"
+  fi
+}
+
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

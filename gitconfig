@@ -6,15 +6,12 @@
 [color]
     ui = auto
 [push]
-    # push only the current branch
     default = tracking
 [branch]
     autosetuprebase = always
 [merge]
-    # from 1.7.6
     ff = false
 [pull]
-    # from 1.7.9
     rebase = true
 [alias]
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
@@ -38,6 +35,3 @@
     s = status --short --branch
     st = status
     su = submodule update
-[user]
-	name = 芝原悠介
-	email = yusuke.shibahara@heathrow.co.jp
