@@ -1,9 +1,8 @@
-#---------------------------------------------------------------------------
-# General
-#---------------------------------------------------------------------------
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
 export EDITOR=vim
-export TERM=xterm-256color
+export TERM=screen-256color
 setopt nobeep
 
 #---------------------------------------------------------------------------
@@ -77,7 +76,7 @@ RPROMPT="%1(v|%F{green}%1v%f|)"
 # Alias
 #---------------------------------------------------------------------------
 alias ll='ls -ltr'
-alias la="ls -lhAF --color=auto"
+alias la='ls -lhAF'
 
 alias diff='colordiff'
 
@@ -97,22 +96,6 @@ alias gfff='git flow feature finish'
 #---------------------------------------------------------------------------
 # Others
 #---------------------------------------------------------------------------
-function mkcd() {
-  mkdir -p $1 && cd $1
-}
-
-function findgrep() {
-  find . -type f -print | xargs grep -n --binary-files=without-match $@
-}
-
-function findswaps() {
-  find -name '*.sw*'
-}
-
-function rmswaps() {
-  findswaps | xargs rm
-}
-
 function reload() {
   source $HOME/.zshrc
 }
@@ -121,27 +104,5 @@ function chpwd() {
   ls
 }
 
-function google() {
-  local str opt
-  if [ $ != 0 ]; then
-    for i in $*; do
-      str="$str+$i"
-    done
-    str=`echo $str | sed 's/^\+//'`
-    opt='search?num=50&amp;hl=ja&amp;lr=lang_ja'
-    opt="${opt}&amp;q=${str}"
-  fi
-  w3m http://www.google.co.jp/$opt
-}
-
-function alc() {
-  if [ $ != 0 ]; then
-    w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
-  else
-    w3m "http://www.alc.co.jp/"
-  fi
-}
-
-# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

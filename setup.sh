@@ -9,6 +9,7 @@ rm -f ~/.gitconfig && ln -s `pwd`/gitconfig ~/.gitconfig
 rm -f ~/.gitignore && ln -s `pwd`/gitignore ~/.gitignore
 
 git submodule init
+git submodule update
 git submodule foreach 'git pull origin master'
 
 echo ':NeoBundleInstall' | vim > /dev/null 2>&1
