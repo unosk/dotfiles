@@ -1,5 +1,4 @@
 set encoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp,utf-8,cp932,euc-jp,default,latin
 
 " -----------------------------------------------
 " Neobundle
