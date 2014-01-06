@@ -93,6 +93,9 @@ alias gco='git checkout'
 alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
 
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+
 #---------------------------------------------------------------------------
 # Others
 #---------------------------------------------------------------------------
