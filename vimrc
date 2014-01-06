@@ -1,5 +1,3 @@
-set encoding=utf-8
-
 " -----------------------------------------------
 " Neobundle
 " -----------------------------------------------
@@ -149,9 +147,10 @@ nnoremap [unite-rails]h :<C-u>Unite rails/helper<CR>
 nnoremap [unite-rails]l :<C-u>Unite rails/lib<CR>
 nnoremap [unite-rails]f :<C-u>Unite rails/config<CR>
 nnoremap [unite-rails]s :<C-u>Unite rails/spec<CR>
+nnoremap [unite-rails]d :<C-u>Unite rails/db<CR>
 
 " NERD Tree
-let g:NERDTreeIgnore=['\.git$', '\.swp$', '\~$']
+let g:NERDTreeIgnore=['\.git$', '\.swp$', '\~$', '\.keep$', '\.bundle$']
 let g:NERDTreeShowHidden=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=0
