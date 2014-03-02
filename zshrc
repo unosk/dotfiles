@@ -96,6 +96,9 @@ alias gfff='git flow feature finish'
 alias tn='tmux new -s'
 alias ta='tmux attach -t'
 
+alias migrate='./bin/spring rake db:migrate; ./bin/spring rake db:test:clone; ./bin/annotate -i'
+alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/spring rake db:test:clone; ./bin/annotate -i'
+
 #---------------------------------------------------------------------------
 # Others
 #---------------------------------------------------------------------------
