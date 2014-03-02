@@ -1,4 +1,4 @@
-" -----------------------------------------------
+"f-----------------------------------------------
 " Neobundle
 " -----------------------------------------------
 if has('vim_starting')
@@ -30,6 +30,7 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'The-NERD-Commenter'
 
+NeoBundle 'bkad/CamelCaseMotion'
 NeoBundle 'Align'
 NeoBundle 'taichouchou2/vim-endwise.git'
 NeoBundle 'vim-scripts/ruby-matchit'
@@ -52,6 +53,8 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'shelling/railscasts.vim'
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
+
+NeoBundle 'itchyny/calendar.vim'
 
 filetype plugin indent on
 syntax on
@@ -173,6 +176,14 @@ vmap ,, <Plug>NERDCommenterToggle
 let g:lightline = {
   \   'colorscheme': 'jellybeans'
   \ }
+
+" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 
 " Align
 let g:Align_xstrlen=3
