@@ -99,6 +99,8 @@ alias ta='tmux attach -t'
 alias migrate='./bin/spring rake db:migrate; ./bin/spring rake db:test:clone; ./bin/annotate -i'
 alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/spring rake db:test:clone; ./bin/annotate -i'
 
+alias nrs="sudo /etc/init.d/networking restart"
+
 #---------------------------------------------------------------------------
 # Others
 #---------------------------------------------------------------------------
@@ -112,3 +114,6 @@ function chpwd() {
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

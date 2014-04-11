@@ -1,3 +1,4 @@
 *.sw*
 .vimrc.local
 .rbenv-version
+tags

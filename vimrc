@@ -43,6 +43,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " Statusline
 NeoBundle 'itchyny/lightline.vim'
@@ -147,10 +148,12 @@ nnoremap [unite-rails]m :<C-u>Unite rails/model<CR>
 nnoremap [unite-rails]v :<C-u>Unite rails/view<CR>
 nnoremap [unite-rails]c :<C-u>Unite rails/controller<CR>
 nnoremap [unite-rails]h :<C-u>Unite rails/helper<CR>
+nnoremap [unite-rails]h :<C-u>Unite rails/helper<CR>
 nnoremap [unite-rails]l :<C-u>Unite rails/lib<CR>
 nnoremap [unite-rails]f :<C-u>Unite rails/config<CR>
 nnoremap [unite-rails]s :<C-u>Unite rails/spec<CR>
 nnoremap [unite-rails]d :<C-u>Unite rails/db<CR>
+nnoremap [unite-rails]a :<C-u>Unite rails/asset<CR>
 
 " NERD Tree
 let g:NERDTreeIgnore=['\.git$', '\.swp$', '\~$', '\.keep$', '\.bundle$']
