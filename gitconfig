@@ -35,3 +35,7 @@
     s = status --short --branch
     st = status
     su = submodule update
+    gr = log --graph --decorate --oneline
+    graph = log --graph --decorate --oneline
+    sst = status --short --branch
+    difc = diff --color-words

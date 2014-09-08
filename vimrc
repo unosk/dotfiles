@@ -20,6 +20,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'thinca/vim-quickrun'
 
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 "NeoBundle 'Shougo/vimfiler'
 "NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neocomplcache'

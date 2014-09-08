@@ -96,8 +96,8 @@ alias gfff='git flow feature finish'
 alias tn='tmux new -s'
 alias ta='tmux attach -t'
 
-alias migrate='./bin/spring rake db:migrate; ./bin/spring rake db:test:clone; ./bin/annotate -i'
-alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/spring rake db:test:clone; ./bin/annotate -i'
+alias migrate='./bin/spring rake db:migrate; ./bin/annotate -i'
+alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/annotate -i'
 
 alias nrs="sudo /etc/init.d/networking restart"
 
@@ -110,6 +110,10 @@ function reload() {
 
 function chpwd() {
   ls
+}
+
+function greplace() {
+  git grep -l $1 | xargs sed -i -e "s/$1/$2/g"
 }
 
 export PATH="$HOME/.rbenv/bin:$PATH"

@@ -1,4 +1,6 @@
 *.sw*
 .vimrc.local
 .rbenv-version
+.ruby-version
 tags
+my-tool
