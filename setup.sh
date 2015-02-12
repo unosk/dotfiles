@@ -6,7 +6,8 @@ rm -f ~/.vimrc     && ln -s `pwd`/vimrc     ~/.vimrc
 rm -f ~/.gemrc     && ln -s `pwd`/gemrc     ~/.gemrc
 rm -f ~/.tmux.conf && ln -s `pwd`/tmux.conf ~/.tmux.conf
 rm -f ~/.gitconfig && ln -s `pwd`/gitconfig ~/.gitconfig
-rm -f ~/.gitignore && ln -s `pwd`/gitignore ~/.gitignore
+rm -f ~/.gitignore_global && ln -s `pwd`/gitignore_global ~/.gitignore_global
+rm -f ~/.gitattributes_global && ln -s `pwd`/gitattributes_global ~/.gitattributes_global
 
 git submodule init
 git submodule update

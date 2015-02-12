@@ -84,11 +84,15 @@ alias be='bundle exec'
 
 alias g='git'
 alias gci='git commit'
-alias gst='git status'
+alias gst='git status --short --branch'
 alias glg='git log'
 alias gaa='git add .'
-alias gdf='git diff'
+alias ga='git add'
+alias gd='git diff'
+alias gdc='git diff --cached'
 alias gco='git checkout'
+alias gg='git grep'
+alias gr='greplace'
 
 alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
@@ -100,6 +104,8 @@ alias migrate='./bin/spring rake db:migrate; ./bin/annotate -i'
 alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/annotate -i'
 
 alias nrs="sudo /etc/init.d/networking restart"
+
+alias rs='./bin/rails s -b 0.0.0.0'
 
 #---------------------------------------------------------------------------
 # Others
@@ -113,7 +119,7 @@ function chpwd() {
 }
 
 function greplace() {
-  git grep -l $1 | xargs sed -i -e "s/$1/$2/g"
+  git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
 }
 
 export PATH="$HOME/.rbenv/bin:$PATH"

@@ -1,7 +1,8 @@
 [include]
     path = .gitconfig.local
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore_global
+    attributesfile = ~/.gitattributes_global
     pager = less -r
 [color]
     ui = auto
@@ -13,6 +14,10 @@
     ff = false
 [pull]
     rebase = true
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 [alias]
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
     b = branch -a
@@ -39,3 +44,6 @@
     graph = log --graph --decorate --oneline
     sst = status --short --branch
     difc = diff --color-words
+[user]
+	name = unosk
+	email = yusuke.shibahara@heathrow.co.jp
