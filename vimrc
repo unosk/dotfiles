@@ -137,12 +137,12 @@ let g:unite_source_file_mru_limit = 200
 nnoremap [unite] <Nop>
 nmap     <Space>u [unite]
 
-nnoremap [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap [unite]u :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap [unite]b :<C-u>Unite buffer<CR>
 nnoremap [unite]y :<C-u>Unite history/yank<CR>
 nnoremap [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap [unite]r :<C-u>Unite -buffer-name=register register<CR>
-nnoremap [unite]u :<C-u>Unite file_mru buffer<CR>
+" nnoremap [unite]u :<C-u>Unite file_mru buffer<CR>
 
 " ESCキーを2回押すとUniteを終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>

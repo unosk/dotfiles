@@ -122,6 +122,17 @@ function greplace() {
   git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
 }
 
+function kill-rails-server() {
+  ps aux | grep "[r]ails s" | awk '{print "kill -9",$2}' | sh
+}
+function kill-rails-console() {
+  ps aux | grep "[r]ails c" | awk '{print "kill -9",$2}' | sh
+}
+function kill-rails() {
+  kill-rails-server
+  kill-rails-console
+}
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 

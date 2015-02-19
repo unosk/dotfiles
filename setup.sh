@@ -4,6 +4,7 @@ rm -f ~/.zshrc     && ln -s `pwd`/zshrc     ~/.zshrc
 rm -f ~/.vim       && ln -s `pwd`/vim       ~/.vim
 rm -f ~/.vimrc     && ln -s `pwd`/vimrc     ~/.vimrc
 rm -f ~/.gemrc     && ln -s `pwd`/gemrc     ~/.gemrc
+rm -f ~/.pryrc     && ln -s `pwd`/pryrc     ~/.pryrc
 rm -f ~/.tmux.conf && ln -s `pwd`/tmux.conf ~/.tmux.conf
 rm -f ~/.gitconfig && ln -s `pwd`/gitconfig ~/.gitconfig
 rm -f ~/.gitignore_global && ln -s `pwd`/gitignore_global ~/.gitignore_global
