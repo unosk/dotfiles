@@ -100,8 +100,10 @@ alias gfff='git flow feature finish'
 alias tn='tmux new -s'
 alias ta='tmux attach -t'
 
-alias migrate='./bin/spring rake db:migrate; ./bin/annotate -i'
-alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/annotate -i'
+# alias migrate='./bin/spring rake db:migrate; ./bin/annotate -i'
+# alias migrate_reset='./bin/spring rake db:migrate:reset; ./bin/annotate -i'
+alias migrate='./bin/rake db:migrate && RAILS_ENV=test ./bin/rake db:reset'
+alias migrate_reset='./bin/rake db:migrate:reset && RAILS_ENV=test ./bin/rake db:reset'
 
 alias nrs="sudo /etc/init.d/networking restart"
 

@@ -51,6 +51,8 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'kchmck/vim-coffee-script'
 
+" NeoBundle 'scrooloose/syntastic'
+
 " Statusline
 NeoBundle 'itchyny/lightline.vim'
 
@@ -174,13 +176,25 @@ omap <silent> <C-e>      :NERDTreeToggle<CR>
 imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 
-autocmd vimenter * if !argc() | NERDTree | endif
+" ファイル指定なしで起動するとNERDTreeを開いた状態から始める
+" autocmd vimenter * if !argc() | NERDTree | endif
 
 " NERD Commenter
 let NERDSpaceDelims = 1
 
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_ruby_checkers = ['rubocop']
 
 " LightLine
 let g:lightline = {
