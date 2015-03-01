@@ -1,6 +1,40 @@
 
 # tap repositories and their packages
 
+## caskroom/cask
+tap caskroom/cask
+install brew-cask
+cask install alfred
+cask install android-studio
+cask install appcleaner
+cask install bettertouchtool
+cask install chefdk
+cask install cyberduck
+cask install dropbox
+cask install github
+cask install google-chrome
+cask install google-japanese-ime
+cask install iterm2
+cask install java
+cask install kobito
+cask install macvim
+cask install robomongo
+cask install sequel-pro
+cask install sketch
+cask install skitch
+cask install slack
+cask install vagrant
+cask install virtualbox
+cask install xtrafinder
+
+## motemen/ghq
+tap motemen/ghq
+install ghq
+
+## peco/peco
+tap peco/peco
+install peco
+
 ## rcmdnk/file
 tap rcmdnk/file
 install brew-file
