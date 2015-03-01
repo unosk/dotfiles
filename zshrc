@@ -135,8 +135,16 @@ function kill-rails() {
   kill-rails-console
 }
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ -d $HOME/.anyenv  ] ; then
+  PATH=$HOME/.anyenv/bin:$PATH
+  export PATH
+  eval "$(anyenv init -)"
+fi
+if [ -d $HOME/.rbenv  ] ; then
+  PATH=$HOME/.rbenv/shims:$PATH
+  export PATH
+  eval "$(rbenv init -)"
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
