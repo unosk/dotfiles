@@ -11,6 +11,7 @@ cask install bettertouchtool
 cask install chefdk
 cask install cyberduck
 cask install dropbox
+cask install genymotion
 cask install github
 cask install google-chrome
 cask install google-japanese-ime
@@ -60,7 +61,6 @@ install libevent
 install libmpc
 install libpng
 install libtool
-install macvim
 install mpfr
 install nkf
 install openssl
