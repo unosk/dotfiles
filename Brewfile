@@ -76,6 +76,9 @@ install z
 install zsh
 
 # App Store applications
+appstore iMovie
+appstore iPhoto
 appstore LINE
 appstore Pocket
+appstore VideoCast
 appstore Xcode
