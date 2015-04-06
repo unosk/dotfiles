@@ -12,6 +12,7 @@ cask install chefdk
 cask install cyberduck
 cask install dropbox
 cask install genymotion
+cask install gimp
 cask install github
 cask install google-chrome
 cask install google-japanese-ime
