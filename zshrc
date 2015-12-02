@@ -86,12 +86,17 @@ alias g='git'
 alias gci='git commit'
 alias gst='git status --short --branch'
 alias glg='git log'
-alias gaa='git add .'
+alias gaa='git add . -A'
 alias ga='git add'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gco='git checkout'
 alias gg='git grep'
+alias gb='git branch'
+alias gfo='git fetch origin'
+alias gpm='git pull origin master'
+alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+
 alias gr='greplace'
 
 alias gffs='git flow feature start'
@@ -108,6 +113,10 @@ alias migrate_reset='./bin/rake db:migrate:reset && RAILS_ENV=test ./bin/rake db
 alias nrs="sudo /etc/init.d/networking restart"
 
 alias rs='./bin/rails s -b 0.0.0.0'
+alias rc='./bin/rails c'
+
+alias mc='mailcatcher --ip 0.0.0.0'
+alias webserver='ruby -run -ehttpd . -p8000'
 
 #---------------------------------------------------------------------------
 # Others
@@ -135,6 +144,18 @@ function kill-rails() {
   kill-rails-console
 }
 
+peco-select-history() {
+  BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
+  CURSOR=${#BUFFER}
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 if [ -d $HOME/.anyenv  ] ; then
   PATH=$HOME/.anyenv/bin:$PATH
   export PATH
@@ -146,5 +167,5 @@ if [ -d $HOME/.rbenv  ] ; then
   eval "$(rbenv init -)"
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin

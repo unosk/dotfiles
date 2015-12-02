@@ -40,6 +40,7 @@ NeoBundle 'bkad/CamelCaseMotion'
 NeoBundle 'Align'
 NeoBundle 'taichouchou2/vim-endwise.git'
 NeoBundle 'vim-scripts/ruby-matchit'
+NeoBundle 'tpope/vim-surround'
 
 " Git
 NeoBundle 'tpope/vim-fugitive'
@@ -163,6 +164,7 @@ nnoremap [unite-rails]f :<C-u>Unite rails/config<CR>
 nnoremap [unite-rails]s :<C-u>Unite rails/spec<CR>
 nnoremap [unite-rails]d :<C-u>Unite rails/db<CR>
 nnoremap [unite-rails]a :<C-u>Unite rails/asset<CR>
+nnoremap [unite-rails]b :<C-u>Unite rails/bundled_gem<CR>
 
 " NERD Tree
 let g:NERDTreeIgnore=['\.git$', '\.swp$', '\~$', '\.keep$', '\.bundle$']
