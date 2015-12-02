@@ -4,3 +4,5 @@
 .ruby-version
 tags
 my-tool
+.env
+.DS_Store

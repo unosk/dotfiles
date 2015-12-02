@@ -53,6 +53,8 @@ NeoBundle 'tpope/vim-bundler'
 NeoBundle 'kchmck/vim-coffee-script'
 
 " NeoBundle 'scrooloose/syntastic'
+"
+NeoBundle 'markcornick/vim-terraform'
 
 " Statusline
 NeoBundle 'itchyny/lightline.vim'

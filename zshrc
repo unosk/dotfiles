@@ -118,6 +118,18 @@ alias rc='./bin/rails c'
 alias mc='mailcatcher --ip 0.0.0.0'
 alias webserver='ruby -run -ehttpd . -p8000'
 
+alias adb-show-activity="adb shell dumpsys activity top"
+alias adb-show-stack="adb shell dumpsys activity | grep -B 1 \"Run #[0-9]*:\""
+
+alias d='docker'
+alias dm='docker-machine'
+alias dc='docker-compose'
+
+alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfs='terraform show'
+
 #---------------------------------------------------------------------------
 # Others
 #---------------------------------------------------------------------------
@@ -133,6 +145,10 @@ function greplace() {
   git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
 }
 
+function dmenv() {
+  eval "$(docker-machine env $1)"
+}
+
 function kill-rails-server() {
   ps aux | grep "[r]ails s" | awk '{print "kill -9",$2}' | sh
 }
@@ -144,17 +160,13 @@ function kill-rails() {
   kill-rails-console
 }
 
-peco-select-history() {
-  BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
-  CURSOR=${#BUFFER}
-  zle clear-screen
+function peco-history-selection() {
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
-
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 if [ -d $HOME/.anyenv  ] ; then
   PATH=$HOME/.anyenv/bin:$PATH
@@ -169,3 +181,13 @@ fi
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+export PATH="/usr/local/heroku/bin:$PATH"
+
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+
+function vmfavrica() {
+  cd ~/Vagrants/favrica > /dev/null
+  ps aux | grep VBoxHeadless | grep favrica -q || vagrant up
+  vagrant ssh
+}
