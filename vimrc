@@ -26,7 +26,7 @@ NeoBundle 'thinca/vim-quickrun'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-"NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler'
 "NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neocomplcache'
 
@@ -51,9 +51,14 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'slim-template/vim-slim.git'
+
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 " NeoBundle 'scrooloose/syntastic'
-"
+NeoBundle 'w0rp/ale'
+
 NeoBundle 'markcornick/vim-terraform'
 
 " Statusline
@@ -67,6 +72,9 @@ NeoBundle 'shelling/railscasts.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'itchyny/calendar.vim'
+
+NeoBundle 'posva/vim-vue'
+NeoBundle 'digitaltoad/vim-pug'
 
 call neobundle#end()
 filetype plugin indent on
@@ -200,10 +208,31 @@ vmap ,, <Plug>NERDCommenterToggle
 " let g:syntastic_check_on_wq = 0
 " let g:syntastic_ruby_checkers = ['rubocop']
 
+" Ale
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+  \   'ruby': ['rubocop'],
+  \   'javascript': ['eslint']
+  \ }
+let g:ale_fixers = {
+  \   'ruby': ['rubocop'],
+  \   'javascript': ['eslint']
+  \ }
+
 " LightLine
 let g:lightline = {
-  \   'colorscheme': 'jellybeans'
+  \   'colorscheme': 'jellybeans',
+  \   'active': {
+  \     'left': [
+  \       ['mode', 'paste'],
+  \       ['readonly', 'filename', 'modified', 'ale'],
+  \     ]
+  \   },
+  \   'component_function': {
+  \     'ale': 'ALEGetStatusLine'
+  \   }
   \ }
+
 
 " CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w

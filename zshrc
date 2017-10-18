@@ -79,6 +79,7 @@ alias ll='ls -ltr'
 alias la='ls -lhAF'
 
 alias diff='colordiff'
+alias sed='gsed'
 
 alias be='bundle exec'
 
@@ -125,10 +126,21 @@ alias d='docker'
 alias dm='docker-machine'
 alias dc='docker-compose'
 
+alias drs='dc run --service-ports web'
+alias drc='dc run web ./bin/rails c'
+alias drspec='dc run web ./bin/rspec'
+alias drake='dc run web ./bin/rake'
+alias dmigrate='dc run web ./bin/rake db:migrate && dc run -e RAILS_ENV=test web ./bin/rake db:reset'
+alias dmigrate_reset='dc run web ./bin/rake db:migrate:reset && dc run -e RAILS_ENV=test web ./bin/rake db:reset'
+
 alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfs='terraform show'
+
+alias is='itamae-secrets'
+
+alias docker-date-sync='docker run --rm --privileged alpine hwclock -s'
 
 #---------------------------------------------------------------------------
 # Others
@@ -143,6 +155,7 @@ function chpwd() {
 
 function greplace() {
   git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
+  find . -name '*-e' | xargs rm
 }
 
 function dmenv() {
@@ -184,10 +197,18 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 function vmfavrica() {
   cd ~/Vagrants/favrica > /dev/null
   ps aux | grep VBoxHeadless | grep favrica -q || vagrant up
   vagrant ssh
+}
+
+function git-init() {
+  git init
+  git commit -m"Initial commit" --allow-empty
 }

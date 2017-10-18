@@ -10,6 +10,8 @@
     default = tracking
 [branch]
     autosetuprebase = always
+[diff]
+    renames = copies
 [merge]
     ff = false
 [pull]
@@ -46,4 +48,8 @@
     difc = diff --color-words
 [user]
 	name = unosk
-	email = yusuke.shibahara@heathrow.co.jp
+	email = unosk.s@gmail.com
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true

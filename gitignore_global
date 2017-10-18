@@ -2,7 +2,8 @@
 .vimrc.local
 .rbenv-version
 .ruby-version
-tags
 my-tool
 .env
 .DS_Store
+__only_unosk.*
+/node_modules
