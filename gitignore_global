@@ -1,9 +1,10 @@
-*.sw*
+*.swp
 .vimrc.local
 .rbenv-version
 .ruby-version
 my-tool
 .env
+.envrc
 .DS_Store
 __only_unosk.*
 /node_modules
